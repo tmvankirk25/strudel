@@ -1,0 +1,35 @@
+// "Y2 AlgoraveV4" @by tvk
+await initHydra({detectAudio:true})
+a.show()
+a.setBins(6)
+a.setSmooth(.8)
+s0.initCam(3)
+
+src(s0)
+.brightness(-1)
+         
+.add(
+    src(s0)
+    .brightness(1)
+    .pixelate(10,500)            
+    .scale(1)
+    ,1)
+  
+              
+.layer(src(s0)
+      .rotate(180)
+      .pixelate(500,1)
+      .saturate(1.5)
+      .modulate(noise(3,0.1),() => a.fft[0]/4)
+      .mask(noise(2,0.5)
+          .pixelate(40,20)
+          .thresh(0)
+        )
+      )  
+
+.rotate(45)
+.kaleid(2)
+.scale(.5)
+.out(o0)
+
+hush()
