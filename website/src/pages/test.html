@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        bool=true
+        document.addEventListener('keydown', function(event) {
+  // Check if Ctrl (or Cmd on Mac) and Q are pressed
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'q') {
+    if(bool==true){
+        event.preventDefault(); // Optional: prevent browser default action
+        document.getElementById("img").style.display="none"
+        bool=false
+    }
+    else{
+        event.preventDefault(); // Optional: prevent browser default action
+        document.getElementById("img").style.display="block"
+        bool=true
+    }
+    
+  }
+});
+    </script>
+</body>
+</html>

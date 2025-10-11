@@ -6,10 +6,33 @@ import { Repl } from '../repl/Repl';
 <html lang="en" class="m-0 dark">
   <head>
     <HeadCommon />
-    <title>Strudel REPL</title>
+    <title>Strudel </title>
   </head>
   <body class="h-app-height bg-background m-0">
+    <img id="qr" src='../../qr_gne.png' style="position:absolute; right:0; z-index:200">
     <Repl client:only="react" />
     <a rel="me" href="https://social.toplap.org/@strudel" target="_blank" class="hidden">mastodon</a>
+          <script>
+
+        let bool=true
+        document.addEventListener('keydown', function(event) {
+  // Check if Ctrl (or Cmd on Mac) and Q are pressed
+  if ((event.altKey || event.metaKey) && event.key.toLowerCase() === 'w') {
+    console.log("qr code")
+    if(bool==true){
+        event.preventDefault(); // Optional: prevent browser default action
+        document.getElementById("qr").style.display="none"
+        bool=false
+    }
+    else{
+        event.preventDefault(); // Optional: prevent browser default action
+        document.getElementById("qr").style.display="block"
+        bool=true
+    }
+    
+  }
+});
+    </script>
   </body>
+
 </html>
